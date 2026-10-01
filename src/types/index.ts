@@ -38,6 +38,10 @@ export interface Product {
   modelUrl?: string;
   /** Optional product video (e.g. "/videos/bounce-pro-ball.mp4") shown on the product page. */
   videoUrl?: string;
+  /** Optional WebM version of the video, for browsers without H.264 support. */
+  videoWebmUrl?: string;
+  /** Optional still image shown before the video starts playing. */
+  videoPoster?: string;
 }
 
 export interface CartItem {

@@ -20,6 +20,9 @@ export const demoProducts: Product[] = [
     badges: ["Bestseller"],
     features: ["Natural rubber", "Floats in water", "Dishwasher safe", "Ø 7 cm"],
     model: { kind: "ball", color: "#f97316", accent: "#ffffff" },
+    videoUrl: "/videos/bounce-pro-ball.mp4",
+    videoWebmUrl: "/videos/bounce-pro-ball.webm",
+    videoPoster: "/videos/bounce-pro-ball.jpg",
   },
   {
     id: "dental-chew-bone",

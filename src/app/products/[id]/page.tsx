@@ -43,15 +43,18 @@ export default async function ProductPage({ params }: Props) {
           <Product3DViewer product={product} />
           {product.videoUrl && (
             <video
-              src={product.videoUrl}
               className="aspect-video w-full rounded-3xl bg-black object-cover shadow-sm"
+              poster={product.videoPoster}
               autoPlay
               muted
               loop
               playsInline
               controls
               preload="metadata"
-            />
+            >
+              {product.videoWebmUrl && <source src={product.videoWebmUrl} type="video/webm" />}
+              <source src={product.videoUrl} type="video/mp4" />
+            </video>
           )}
         </div>
 
