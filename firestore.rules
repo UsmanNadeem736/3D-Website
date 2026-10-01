@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Product catalogue is public read-only (write via console / seed script with admin rights).
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Orders are created by the checkout API and readable by their owner.
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow update, delete: if false;
+    }
+
+    // Each user can manage their own wishlist / profile.
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
